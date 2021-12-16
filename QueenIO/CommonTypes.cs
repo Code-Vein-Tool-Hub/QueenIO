@@ -35,6 +35,13 @@ namespace QueenIO
             Color.DuplicationIndex = index;
             return Color;
         }
+
+        public void Read(StructPropertyData Color)
+        {
+            IsSpecialColor = ((BoolPropertyData)Color.Value[0]).Value;
+            ColorPaletteRowName = ((NamePropertyData)Color.Value[1]).Value.Value.Value;
+            ColorName = ((NamePropertyData)Color.Value[2]).Value.Value.Value;
+        }
     }
 
     public class FlagCheck
@@ -53,6 +60,11 @@ namespace QueenIO
             Str.Name = new FName(Name);
             Str.Value = new FString(Value);
             return Str;
+        }
+
+        public void Read(StrPropertyData Str)
+        {
+            Value = Str.Value.Value;
         }
     }
 }
