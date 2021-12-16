@@ -13,10 +13,10 @@ namespace CodeVeinOutfitInjector.Tables
 {
     public class InnerList
     {
-        public List<AvatarCustomizeDataTableInnerList> Inners { get; set; }
+        public List<InnerData> Inners { get; set; }
     }
 
-    public class AvatarCustomizeDataTableInnerList
+    public class InnerData
     {
         public string Name { get; set; }
         public string StructType { get; } = "AvatarCustomizeDataTableInnerList";
@@ -29,7 +29,7 @@ namespace CodeVeinOutfitInjector.Tables
         public ColorData Color_4 { get; set; }
         public ColorData Color_5 { get; set; }
         public ColorData Color_6 { get; set; }
-        public HidePartsData HidePartsInfoDetails { get; set; }
+        public HidePartsTableData HidePartsInfoDetails { get; set; }
         public FlagCheck CheckFlagSymbol { get; set; }
 
         public StructPropertyData Make()
@@ -55,8 +55,9 @@ namespace CodeVeinOutfitInjector.Tables
 
     public class HidePartsTableData
     {
+        public string Name { get; } = "HidePartsInfoDetails";
         public StructPropertyData DummyStruct { get; } = new StructPropertyData() { Name = new FName("HidePartsInfoDetails"), StructType = new FName("AvatarCustomizeDataTableInnerHidePartsInfoDetail") };
-        public List<StructPropertyData> HideParts { get; set; }
+        public List<HidePartsData> HideParts { get; set; }
 
         public ArrayPropertyData Make()
         {
