@@ -91,6 +91,7 @@ namespace CodeVeinOutfitInjector.Tables
 
         public void Read(ArrayPropertyData array)
         {
+            HideParts = new List<HidePartsData>();
             foreach (var item in array.Value)
             {
                 HidePartsData hidePartsData = new HidePartsData();
