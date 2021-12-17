@@ -54,15 +54,15 @@ namespace CodeVeinOutfitInjector.Tables
         public string StructType { get; } = "AvatarCustomizeDataTableInnerList";
         public string Thumbnail { get; set; }
         public string Mesh { get; set; }
-        public ColorData Color_0 { get; set; }
-        public ColorData Color_1 { get; set; }
-        public ColorData Color_2 { get; set; }
-        public ColorData Color_3 { get; set; }
-        public ColorData Color_4 { get; set; }
-        public ColorData Color_5 { get; set; }
-        public ColorData Color_6 { get; set; }
-        public HidePartsTableData HidePartsInfoDetails { get; set; }
-        public FlagCheck CheckFlagSymbol { get; set; }
+        public ColorData Color_0 { get; set; } = new ColorData();
+        public ColorData Color_1 { get; set; } = new ColorData();
+        public ColorData Color_2 { get; set; } = new ColorData();
+        public ColorData Color_3 { get; set; } = new ColorData();
+        public ColorData Color_4 { get; set; } = new ColorData();
+        public ColorData Color_5 { get; set; } = new ColorData();
+        public ColorData Color_6 { get; set; } = new ColorData();
+        public HidePartsTableData HidePartsInfoDetails { get; set; } = new HidePartsTableData();
+        public FlagCheck CheckFlagSymbol { get; set; } = new FlagCheck();
 
         public StructPropertyData Make()
         {

@@ -64,7 +64,12 @@ namespace QueenIO
 
         public void Read(StrPropertyData Str)
         {
-            Value = Str.Value.Value;
+            if (Str.Value == null)
+                Value = null;
+            else
+                Value = Str.Value.ToString();
+        }
+    }
         }
     }
 }
