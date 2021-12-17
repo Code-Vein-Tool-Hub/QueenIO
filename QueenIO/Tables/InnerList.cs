@@ -9,7 +9,7 @@ using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
 using QueenIO;
 
-namespace CodeVeinOutfitInjector.Tables
+namespace QueenIO.Tables
 {
     public class InnerList
     {
@@ -153,14 +153,14 @@ namespace CodeVeinOutfitInjector.Tables
             hidepart.StructType = new FName(StructType);
             hidepart.Value = new List<PropertyData>();
             hidepart.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail) });
-            hidepart.Value.Add(new SoftObjectPropertyData() { Name = new FName("HidePartsName"), Value = new FName(HidePartsName) });
+            hidepart.Value.Add(new NamePropertyData() { Name = new FName("HidePartsName"), Value = new FName(HidePartsName) });
             return hidepart;
         }
 
         public void Read(StructPropertyData hidepart)
         {
             Thumbnail = ((SoftObjectPropertyData)hidepart.Value[0]).Value.Value.Value;
-            HidePartsName = ((SoftObjectPropertyData)hidepart.Value[1]).Value.Value.Value;
+            HidePartsName = ((NamePropertyData)hidepart.Value[1]).Value.Value.Value;
         }
     }
 }
