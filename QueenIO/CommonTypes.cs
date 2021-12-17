@@ -70,6 +70,28 @@ namespace QueenIO
                 Value = Str.Value.ToString();
         }
     }
+
+    public class ScenarioOffsetData
+    {
+        public string Name { get; } = "ScenarioOffset";
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Z { get; set; }
+
+        public StructPropertyData Make()
+        {
+            StructPropertyData Struct = new StructPropertyData();
+            Struct.Name = new FName(Name);
+            Struct.Value = new List<PropertyData>();
+            Struct.Value.Add(new VectorPropertyData() { Name = new FName(Name), Value = new FVector(X, Y, Z)});
+            return Struct;
+        }
+
+        public void Read(StructPropertyData structProperty)
+        {
+            X = ((VectorPropertyData)structProperty.Value[0]).Value.X;
+            Y = ((VectorPropertyData)structProperty.Value[0]).Value.Y;
+            Z = ((VectorPropertyData)structProperty.Value[0]).Value.Z;
         }
     }
 }
