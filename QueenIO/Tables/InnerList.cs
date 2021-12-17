@@ -14,6 +14,38 @@ namespace CodeVeinOutfitInjector.Tables
     public class InnerList
     {
         public List<InnerData> Inners { get; set; }
+
+        public UDataTable Make()
+        {
+            UDataTable dataTable = new UDataTable();
+            dataTable.Data = new List<StructPropertyData>();
+            foreach (InnerData data in Inners)
+            {
+                dataTable.Data.Add(data.Make());
+            }
+            return dataTable;
+        }
+
+        public void Read(DataTableExport dataTable)
+        {
+            Inners = new List<InnerData>();
+            foreach (var item in dataTable.Table.Data)
+            {
+                InnerData innerData = new InnerData();
+                innerData.Read(item);
+                Inners.Add(innerData);
+            }
+        }
+        public void Read(UDataTable dataTable)
+        {
+            Inners = new List<InnerData>();
+            foreach (var item in dataTable.Data)
+            {
+                InnerData innerData = new InnerData();
+                innerData.Read(item);
+                Inners.Add(innerData);
+            }
+        }
     }
 
     public class InnerData
