@@ -58,7 +58,7 @@ namespace QueenIO
         {
             StrPropertyData Str = new StrPropertyData();
             Str.Name = new FName(Name);
-            Str.Value = new FString(Value);
+            Str.Value = new FString(Value == null ? null : Value);
             return Str;
         }
 
@@ -67,7 +67,7 @@ namespace QueenIO
             if (Str.Value == null)
                 Value = null;
             else
-                Value = Str.Value.ToString();
+                Value = Str.Value.Value;
         }
     }
 
