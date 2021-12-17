@@ -10,6 +10,9 @@ using UAssetAPI.StructTypes;
 
 namespace QueenIO.Tables
 {
+    /// <summary>
+    /// Used by DT_InnerFrameList_[Female/Male] and DT_OuterMaskList_[Female/Male]
+    /// </summary>
     public class MaskListData
     {
         public List<MaskData> Masks { get; set; } = new List<MaskData>();

@@ -11,6 +11,9 @@ using QueenIO;
 
 namespace QueenIO.Tables
 {
+    /// <summary>
+    /// Used by DT_InnerList_[Female/Male]
+    /// </summary>
     public class InnerList
     {
         public List<InnerData> Inners { get; set; }
