@@ -30,7 +30,7 @@ namespace QueenIO
             StructPropertyData Color = new StructPropertyData();
             Color.Name = new FName(Name);
             Color.StructType = new FName(StructType);
-            Color.Value.Add(new BoolPropertyData() { Name = new FName("IsSpecialColor"), Value = false });
+            Color.Value.Add(new BoolPropertyData() { Name = new FName("IsSpecialColor"), Value = IsSpecialColor });
             Color.Value.Add(new NamePropertyData() { Name = new FName("ColorPaletteRowName"), Value = new FName(ColorPaletteRowName) });
             Color.Value.Add(new NamePropertyData() { Name = new FName("ColorName"), Value = new FName(ColorName) });
             Color.DuplicationIndex = index;

@@ -96,9 +96,9 @@ namespace QueenIO.Tables
             data.Value.Add(new BoolPropertyData() { Name = new FName("bTransformable"), Value = Transformable });
             data.Value.Add(new BoolPropertyData() { Name = new FName("bScaleNegate"), Value = ScaleNegate });
             data.Value.Add(new EnumPropertyData() { Name = new FName("MaxColor"), Value = new FName(MaxColor) });
-            data.Value.Add(Color_1.Make());
-            data.Value.Add(Color_2.Make());
-            data.Value.Add(Color_3.Make());
+            data.Value.Add(Color_1.Make(0));
+            data.Value.Add(Color_2.Make(1));
+            data.Value.Add(Color_3.Make(2));
             data.Value.Add(new IntPropertyData() { Name = new FName("Cost"), Value = Cost });
             data.Value.Add(CheckFlag.Make());
             data.Value.Add(new BoolPropertyData() { Name = new FName("bSpaEnable"), Value = SpaEnable });
