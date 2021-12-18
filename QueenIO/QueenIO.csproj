@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CommonTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tables\BasicCustomizationList.cs" />
     <Compile Include="Tables\HairList.cs" />
     <Compile Include="Tables\InnerList.cs" />
     <Compile Include="Tables\MaskList.cs" />
