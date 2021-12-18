@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UAssetAPI;
 using UAssetAPI.PropertyTypes;
 using UAssetAPI.StructTypes;
+using System.Numerics;
 
 namespace QueenIO
 {
@@ -92,6 +93,68 @@ namespace QueenIO
             X = ((VectorPropertyData)structProperty.Value[0]).Value.X;
             Y = ((VectorPropertyData)structProperty.Value[0]).Value.Y;
             Z = ((VectorPropertyData)structProperty.Value[0]).Value.Z;
+        }
+    }
+
+    public class Transform
+    {
+        public string Name { get; set;}
+        public string StructType { get; } = "Transform";
+        public Quaternion Rotation { get; set; } = new Quaternion();
+        public Vector3 Translation { get; set; } = new Vector3();
+        public Vector3 Scale3D { get; set; } = new Vector3();
+
+        public StructPropertyData Make()
+        {
+            StructPropertyData data = new StructPropertyData();
+            data.Name = new FName(Name);
+            data.StructType = new FName(StructType);
+            data.Value = new List<PropertyData>();
+
+            StructPropertyData Rot = new StructPropertyData();
+            Rot.Name = new FName("Rotation");
+            Rot.StructType = new FName("Quat");
+            Rot.Value = new List<PropertyData>();
+            Rot.Value.Add(new QuatPropertyData() { Name = new FName("Rotation"), Value = new FQuat(Rotation.X, Rotation.Y, Rotation.Z, Rotation.W) });
+            data.Value.Add(Rot);
+
+            StructPropertyData Trans = new StructPropertyData();
+            Trans.Name = new FName("Translation");
+            Trans.StructType = new FName("Vector");
+            Trans.Value = new List<PropertyData>();
+            Trans.Value.Add(new VectorPropertyData() { Name = new FName("Translation"), Value = new FVector(Translation.X, Translation.Y, Translation.Z) });
+            data.Value.Add(Trans);
+
+            StructPropertyData Scale = new StructPropertyData();
+            Scale.Name = new FName("Scale3D");
+            Scale.StructType = new FName("Vector");
+            Scale.Value = new List<PropertyData>();
+            Scale.Value.Add(new VectorPropertyData() { Name = new FName("Scale3D"), Value = new FVector(Translation.X, Translation.Y, Translation.Z) });
+            data.Value.Add(Scale);
+
+            return data;
+        }
+
+        public void Read(StructPropertyData data)
+        {
+            Quaternion rotation = new Quaternion();
+            rotation.W = ((QuatPropertyData)((StructPropertyData)data.Value[0]).Value[0]).Value.W;
+            rotation.X = ((QuatPropertyData)((StructPropertyData)data.Value[0]).Value[0]).Value.X;
+            rotation.Y = ((QuatPropertyData)((StructPropertyData)data.Value[0]).Value[0]).Value.Y;
+            rotation.Z = ((QuatPropertyData)((StructPropertyData)data.Value[0]).Value[0]).Value.Z;
+            Rotation = rotation;
+
+            Vector3 translation = new Vector3();
+            translation.X = ((VectorPropertyData)((StructPropertyData)data.Value[1]).Value[0]).Value.X;
+            translation.Y = ((VectorPropertyData)((StructPropertyData)data.Value[1]).Value[0]).Value.Y;
+            translation.Z = ((VectorPropertyData)((StructPropertyData)data.Value[1]).Value[0]).Value.Z;
+            Translation = translation;
+
+            Vector3 scale3d = new Vector3();
+            scale3d.X = ((VectorPropertyData)((StructPropertyData)data.Value[2]).Value[0]).Value.X;
+            scale3d.Y = ((VectorPropertyData)((StructPropertyData)data.Value[2]).Value[0]).Value.Y;
+            scale3d.Z = ((VectorPropertyData)((StructPropertyData)data.Value[2]).Value[0]).Value.Z;
+            Scale3D = scale3d;
         }
     }
 }
