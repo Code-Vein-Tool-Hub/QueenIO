@@ -125,13 +125,14 @@ namespace QueenIO.Tables
     public class HidePartsTableData
     {
         public string Name { get; } = "HidePartsInfoDetails";
-        public StructPropertyData DummyStruct { get; } = new StructPropertyData() { Name = new FName("HidePartsInfoDetails"), StructType = new FName("AvatarCustomizeDataTableInnerHidePartsInfoDetail") };
-        public List<HidePartsData> HideParts { get; set; }
+        public StructPropertyData DummyStruct { get; } = new StructPropertyData() { Name = new FName("HidePartsInfoDetails"), StructType = new FName("AvatarCustomizeDataTableInnerHidePartsInfoDetail"), Value = new List<PropertyData>() };
+        public List<HidePartsData> HideParts { get; set; } = new List<HidePartsData>();
 
         public ArrayPropertyData Make()
         {
             ArrayPropertyData array = new ArrayPropertyData();
             array.Name = new FName(Name);
+            array.ArrayType = new FName("StructProperty");
             array.DummyStruct = DummyStruct;
             List<PropertyData> propertyDatas = new List<PropertyData>();
             foreach (var item in HideParts)

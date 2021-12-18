@@ -30,6 +30,7 @@ namespace QueenIO
             StructPropertyData Color = new StructPropertyData();
             Color.Name = new FName(Name);
             Color.StructType = new FName(StructType);
+            Color.Value = new List<PropertyData>();
             Color.Value.Add(new BoolPropertyData() { Name = new FName("IsSpecialColor"), Value = IsSpecialColor });
             Color.Value.Add(new NamePropertyData() { Name = new FName("ColorPaletteRowName"), Value = new FName(ColorPaletteRowName) });
             Color.Value.Add(new NamePropertyData() { Name = new FName("ColorName"), Value = new FName(ColorName) });
@@ -48,18 +49,14 @@ namespace QueenIO
     public class FlagCheck
     {
         public string Name { get; } = "CheckFlagSymbol";
-        public string Value { get; set; } = null;
-
-        public FlagCheck(string Flag = "null")
-        {
-            Value = Flag;
-        }
+        public string Value { get; set; }
 
         public StrPropertyData Make()
         {
             StrPropertyData Str = new StrPropertyData();
             Str.Name = new FName(Name);
-            Str.Value = new FString(Value == null ? null : Value);
+            if (Value != null)
+                Str.Value = new FString(Value);
             return Str;
         }
 
