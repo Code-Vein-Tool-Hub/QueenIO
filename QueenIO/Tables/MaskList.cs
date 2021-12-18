@@ -15,8 +15,15 @@ namespace QueenIO.Tables
     /// </summary>
     public class MaskListData
     {
+        /// <summary>
+        /// List of Objects in Data Table.
+        /// </summary>
         public List<MaskData> Masks { get; set; } = new List<MaskData>();
 
+        /// <summary>
+        /// Makes the Data Table for the uasset file.
+        /// </summary>
+        /// <returns></returns>
         public UDataTable Make()
         {
             UDataTable dataTable = new UDataTable();
@@ -28,6 +35,10 @@ namespace QueenIO.Tables
             return dataTable;
         }
 
+        /// <summary>
+        /// Reads the Data Table from the uasset File.
+        /// </summary>
+        /// <param name="dataTable"></param>
         public void Read(DataTableExport dataTable)
         {
             Masks = new List<MaskData>();
@@ -38,6 +49,10 @@ namespace QueenIO.Tables
                 Masks.Add(maskData);
             }
         }
+        /// <summary>
+        /// Reads the Data Table from the uasset File.
+        /// </summary>
+        /// <param name="dataTable"></param>
         public void Read(UDataTable dataTable)
         {
             Masks = new List<MaskData>();
@@ -50,6 +65,9 @@ namespace QueenIO.Tables
         }
     }
 
+    /// <summary>
+    /// Entry used in MaskListData.
+    /// </summary>
     public class MaskData
     {
         public string Name { get; set; }

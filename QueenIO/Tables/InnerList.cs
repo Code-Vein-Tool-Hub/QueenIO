@@ -16,8 +16,15 @@ namespace QueenIO.Tables
     /// </summary>
     public class InnerList
     {
+        /// <summary>
+        /// List of Objects in Data Table.
+        /// </summary>
         public List<InnerData> Inners { get; set; }
 
+        /// <summary>
+        /// Makes the Data Table for the uasset file.
+        /// </summary>
+        /// <returns></returns>
         public UDataTable Make()
         {
             UDataTable dataTable = new UDataTable();
@@ -29,6 +36,10 @@ namespace QueenIO.Tables
             return dataTable;
         }
 
+        /// <summary>
+        /// Reads the Data Table from the uasset File.
+        /// </summary>
+        /// <param name="dataTable"></param>
         public void Read(DataTableExport dataTable)
         {
             Inners = new List<InnerData>();
@@ -39,6 +50,10 @@ namespace QueenIO.Tables
                 Inners.Add(innerData);
             }
         }
+        /// <summary>
+        /// Reads the Data Table from the uasset File.
+        /// </summary>
+        /// <param name="dataTable"></param>
         public void Read(UDataTable dataTable)
         {
             Inners = new List<InnerData>();
@@ -51,6 +66,9 @@ namespace QueenIO.Tables
         }
     }
 
+    /// <summary>
+    /// Entry used in InnerList.
+    /// </summary>
     public class InnerData
     {
         public string Name { get; set; }

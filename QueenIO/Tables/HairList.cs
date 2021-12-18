@@ -15,8 +15,15 @@ namespace QueenIO.Tables
     /// </summary>
     public class HairListData
     {
+        /// <summary>
+        /// List of Objects in Data Table.
+        /// </summary>
         public List<HairData> HairDataList { get; set; } = new List<HairData>();
 
+        /// <summary>
+        /// Makes the Data Table for the uasset file.
+        /// </summary>
+        /// <returns></returns>
         public UDataTable Make()
         {
             UDataTable dataTable = new UDataTable();
@@ -28,6 +35,10 @@ namespace QueenIO.Tables
             return dataTable;
         }
 
+        /// <summary>
+        /// Reads the Data Table from the uasset File.
+        /// </summary>
+        /// <param name="dataTable"></param>
         public void Read(DataTableExport dataTable)
         {
             HairDataList = new List<HairData>();
@@ -38,6 +49,10 @@ namespace QueenIO.Tables
                 HairDataList.Add(hairData);
             }
         }
+        /// <summary>
+        /// Reads the Data Table from the uasset File.
+        /// </summary>
+        /// <param name="dataTable"></param>
         public void Read(UDataTable dataTable)
         {
             HairDataList = new List<HairData>();
@@ -50,6 +65,9 @@ namespace QueenIO.Tables
         }
     }
 
+    /// <summary>
+    /// Entry used in HairListData.
+    /// </summary>
     public class HairData
     {
         public string Name { get; set; }
