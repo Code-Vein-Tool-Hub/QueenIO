@@ -101,10 +101,10 @@ namespace QueenIO
         public Vector3 Translation { get; set; } = new Vector3();
         public Vector3 Scale3D { get; set; } = new Vector3();
 
-        public StructPropertyData Make()
+        public StructPropertyData Make(string name = "Transform")
         {
             StructPropertyData data = new StructPropertyData();
-            data.Name = new FName(Name);
+            data.Name = new FName(name);
             data.StructType = new FName(StructType);
             data.Value = new List<PropertyData>();
 

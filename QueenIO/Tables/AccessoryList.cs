@@ -90,9 +90,9 @@ namespace QueenIO.Tables
             data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Mesh"), Value = new FName(Mesh) });
             data.Value.Add(new ObjectPropertyData() { Name = new FName("AnimClass"), Value = new FPackageIndex(AnimClass) });
             data.Value.Add(new NamePropertyData() { Name = new FName("AttachRowName"), Value = new FName(AttachRowName) });
-            data.Value.Add(RootTransform.Make());
-            data.Value.Add(OrientTransform.Make());
-            data.Value.Add(MeshTransform.Make());
+            data.Value.Add(RootTransform.Make("RootTransform"));
+            data.Value.Add(OrientTransform.Make("OrientTransform"));
+            data.Value.Add(MeshTransform.Make("MeshTransform"));
             data.Value.Add(new BoolPropertyData() { Name = new FName("bTransformable"), Value = Transformable });
             data.Value.Add(new BoolPropertyData() { Name = new FName("bScaleNegate"), Value = ScaleNegate });
             data.Value.Add(new EnumPropertyData() { Name = new FName("MaxColor"), Value = new FName(MaxColor) });
