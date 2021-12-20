@@ -93,7 +93,10 @@ namespace QueenIO.Tables
         public void Read(StructPropertyData data)
         {
             Name = data.Name.Value.Value;
-            TextName = ((TextPropertyData)data.Value[0]).Value.Value;
+            if (((TextPropertyData)data.Value[0]).Value == null)
+                TextName = null;
+            else
+                TextName = ((TextPropertyData)data.Value[0]).Value.Value;
             Thumbnail = ((SoftObjectPropertyData)data.Value[1]).Value.Value.Value;
             Mesh = ((SoftObjectPropertyData)data.Value[2]).Value.Value.Value;
             AnimClass = ((ObjectPropertyData)data.Value[3]).Value.Index;
