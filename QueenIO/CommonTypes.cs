@@ -80,6 +80,7 @@ namespace QueenIO
         {
             StructPropertyData Struct = new StructPropertyData();
             Struct.Name = new FName(Name);
+            Struct.StructType = new FName("Vector");
             Struct.Value = new List<PropertyData>();
             Struct.Value.Add(new VectorPropertyData() { Name = new FName(Name), Value = new FVector(X, Y, Z)});
             return Struct;
