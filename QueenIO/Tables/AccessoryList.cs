@@ -126,5 +126,28 @@ namespace QueenIO.Tables
             CheckFlag.Read((StrPropertyData)data.Value[14]);
             SpaEnable = ((BoolPropertyData)data.Value[15]).Value;
         }
+
+        public AccessoryData Clone()
+        {
+            AccessoryData data = new AccessoryData();
+            data.Name = Name;
+            data.Thumbnail = Thumbnail;
+            data.Mesh = Mesh;
+            data.AnimClass = AnimClass;
+            data.AttachRowName = AttachRowName;
+            data.RootTransform = RootTransform;
+            data.OrientTransform = OrientTransform;
+            data.MeshTransform = MeshTransform;
+            data.Transformable = Transformable;
+            data.ScaleNegate = ScaleNegate;
+            data.MaxColor = MaxColor;
+            data.Color_1 = Color_1;
+            data.Color_2 = Color_2;
+            data.Color_3 = Color_3;
+            data.Cost = Cost;
+            data.CheckFlag = CheckFlag;
+            data.SpaEnable = SpaEnable;
+            return data;
+        }
     }
 }

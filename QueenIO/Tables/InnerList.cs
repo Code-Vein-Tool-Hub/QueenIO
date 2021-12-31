@@ -120,6 +120,24 @@ namespace QueenIO.Tables
             HidePartsInfoDetails.Read((ArrayPropertyData)inner.Value[9]);
             CheckFlagSymbol.Read((StrPropertyData)inner.Value[10]);
         }
+
+        public InnerData Clone()
+        {
+            InnerData inner = new InnerData();
+            inner.Name = Name;
+            inner.Thumbnail = Thumbnail;
+            inner.Mesh = Mesh;
+            inner.Color_0 = Color_0;
+            inner.Color_1 = Color_1;
+            inner.Color_2 = Color_2;
+            inner.Color_3 = Color_3;
+            inner.Color_4 = Color_4;
+            inner.Color_5 = Color_5;
+            inner.Color_6 = Color_6;
+            inner.HidePartsInfoDetails = HidePartsInfoDetails;
+            inner.CheckFlagSymbol = CheckFlagSymbol;
+            return inner;
+        }
     }
 
     public class HidePartsTableData

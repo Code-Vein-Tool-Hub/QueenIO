@@ -115,5 +115,24 @@ namespace QueenIO.Tables
             Symmetry = ((BoolPropertyData)data.Value[10]).Value;
             CheckFlag.Read((StrPropertyData)data.Value[11]);
         }
+
+        public FacePaintData Clone()
+        {
+            FacePaintData data = new FacePaintData();
+            data.Name = Name;
+            data.Thumbnail = Thumbnail;
+            data.IsSpecialColor = IsSpecialColor;
+            data.ColorPaletteRowName = ColorPaletteRowName;
+            data.ColorName = ColorName;
+            data.Opacity = Opacity;
+            data.Texture = Texture;
+            data.OffsetU = OffsetU;
+            data.OffsetV = OffsetV;
+            data.Rotate = Rotate;
+            data.Scale = Scale;
+            data.Symmetry = Symmetry;
+            data.CheckFlag = CheckFlag;
+            return data;
+        }
     }
 }

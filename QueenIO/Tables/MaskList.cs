@@ -107,5 +107,19 @@ namespace QueenIO.Tables
             FaceHide = ((BoolPropertyData)Mask.Value[5]).Value;
             HairHide = ((BoolPropertyData)Mask.Value[6]).Value;
         }
+
+        public MaskData Clone()
+        {
+            MaskData data = new MaskData();
+            data.Name = Name;
+            data.Thumbnail = Thumbnail;
+            data.Mesh = Mesh;
+            data.AnimClass = AnimClass;
+            data.CheckFlagSymbol = CheckFlagSymbol;
+            data.ScenarioOffset = ScenarioOffset;
+            data.FaceHide = FaceHide;
+            data.HairHide = HairHide;
+            return data;
+        }
     }
 }

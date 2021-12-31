@@ -83,7 +83,7 @@ namespace QueenIO.Tables
             data.Name = new FName(Name);
             data.StructType = new FName(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new TextPropertyData() { Name = new FName("Name"), Value = new FString(TextName == null ? null : TextName) });
+            data.Value.Add(new TextPropertyData() { Name = new FName("Name"), Value = new FString(TextName == null ? null : TextName, Encoding.ASCII) });
             data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail) });
             data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Mesh"), Value = new FName(Mesh) });
             data.Value.Add(new ObjectPropertyData() { Name = new FName("AnimClass"), Value = new FPackageIndex(AnimClass) });
@@ -100,6 +100,17 @@ namespace QueenIO.Tables
             Thumbnail = ((SoftObjectPropertyData)data.Value[1]).Value.Value.Value;
             Mesh = ((SoftObjectPropertyData)data.Value[2]).Value.Value.Value;
             AnimClass = ((ObjectPropertyData)data.Value[3]).Value.Index;
+        }
+
+        public HairData Clone()
+        {
+            HairData data = new HairData();
+            data.Name = Name;
+            data.TextName = TextName == null ? null : TextName;
+            data.Thumbnail = Thumbnail;
+            data.Mesh = Mesh;
+            data.AnimClass = AnimClass;
+            return data;
         }
     }
 }
