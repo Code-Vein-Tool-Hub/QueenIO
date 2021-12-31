@@ -73,9 +73,9 @@ namespace QueenIO.Tables
         public bool Transformable { get; set; }
         public bool ScaleNegate { get; set; }
         public string MaxColor { get; set; }
-        public ColorData Color_1 { get; set; } = new ColorData();
-        public ColorData Color_2 { get; set; } = new ColorData();
-        public ColorData Color_3 { get; set; } = new ColorData();
+        public ColorData Color_1 { get; set; } = new ColorData() { StructType = "AvatarCustomizeDataTableAccessoryColor" };
+        public ColorData Color_2 { get; set; } = new ColorData() { StructType = "AvatarCustomizeDataTableAccessoryColor" };
+        public ColorData Color_3 { get; set; } = new ColorData() { StructType = "AvatarCustomizeDataTableAccessoryColor" };
         public int Cost { get; set; }
         public FlagCheck CheckFlag { get; set; } = new FlagCheck();
         public bool SpaEnable { get; set; }
@@ -120,8 +120,11 @@ namespace QueenIO.Tables
             ScaleNegate = ((BoolPropertyData)data.Value[8]).Value;
             MaxColor = ((EnumPropertyData)data.Value[9]).Value.Value.Value;
             Color_1.Read((StructPropertyData)data.Value[10]);
+            Color_1.StructType = "AvatarCustomizeDataTableAccessoryColor";
             Color_2.Read((StructPropertyData)data.Value[11]);
+            Color_2.StructType = "AvatarCustomizeDataTableAccessoryColor";
             Color_3.Read((StructPropertyData)data.Value[12]);
+            Color_3.StructType = "AvatarCustomizeDataTableAccessoryColor";
             Cost = ((IntPropertyData)data.Value[13]).Value;
             CheckFlag.Read((StrPropertyData)data.Value[14]);
             SpaEnable = ((BoolPropertyData)data.Value[15]).Value;

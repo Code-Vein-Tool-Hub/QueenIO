@@ -12,8 +12,8 @@ namespace QueenIO
 {
     public class ColorData
     {
-        public string Name { get; } = "Colors";
-        public string StructType { get; } = "AvatarCustomizeDataTableInnerColor";
+        public string Name { get; set; } = "Colors";
+        public string StructType { get; set; } = "AvatarCustomizeDataTableInnerColor";
         public bool IsSpecialColor { get; set; } = false;
         public string ColorPaletteRowName { get; set; } = "StandardColor_Gray1";
         public string ColorName { get; set; } = "palette_stg_monotone00";
@@ -40,6 +40,7 @@ namespace QueenIO
 
         public void Read(StructPropertyData Color)
         {
+            Name = Color.Name.Value.Value;
             IsSpecialColor = ((BoolPropertyData)Color.Value[0]).Value;
             ColorPaletteRowName = ((NamePropertyData)Color.Value[1]).Value.Value.Value;
             ColorName = ((NamePropertyData)Color.Value[2]).Value.Value.Value;
