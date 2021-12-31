@@ -127,7 +127,7 @@ namespace QueenIO
             Scale.Name = new FName("Scale3D");
             Scale.StructType = new FName("Vector");
             Scale.Value = new List<PropertyData>();
-            Scale.Value.Add(new VectorPropertyData() { Name = new FName("Scale3D"), Value = new FVector(Translation.X, Translation.Y, Translation.Z) });
+            Scale.Value.Add(new VectorPropertyData() { Name = new FName("Scale3D"), Value = new FVector(Scale3D.X, Scale3D.Y, Scale3D.Z) });
             data.Value.Add(Scale);
 
             return data;
