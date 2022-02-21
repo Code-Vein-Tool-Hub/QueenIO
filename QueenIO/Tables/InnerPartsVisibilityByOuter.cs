@@ -14,15 +14,15 @@ namespace QueenIO.Tables
     {
         public List<PartsVisibilityByOuter> partsVisibilities { get; set; }
 
-        public UDataTable Make()
+        public Successor Make()
         {
-            UDataTable dataTable = new UDataTable();
-            dataTable.Data = new List<StructPropertyData>();
+            Successor successor = new Successor();
+            successor.Data = new List<StructPropertyData>();
             foreach (PartsVisibilityByOuter data in partsVisibilities)
             {
-                dataTable.Data.Add(data.Make());
+                successor.Data.Add(data.Make());
             }
-            return dataTable;
+            return successor;
         }
 
         public void Read(DataTableExport dataTable)

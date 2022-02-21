@@ -24,15 +24,15 @@ namespace QueenIO.Tables
         /// Makes the Data Table for the uasset file.
         /// </summary>
         /// <returns></returns>
-        public UDataTable Make()
+        public Successor Make()
         {
-            UDataTable dataTable = new UDataTable();
-            dataTable.Data = new List<StructPropertyData>();
+            Successor successor = new Successor();
+            successor.Data = new List<StructPropertyData>();
             foreach (HairData data in HairDataList)
             {
-                dataTable.Data.Add(data.Make());
+                successor.Data.Add(data.Make());
             }
-            return dataTable;
+            return successor;
         }
 
         /// <summary>

@@ -43,4 +43,14 @@ namespace QueenIO
             return imports;
         }
     }
+
+    public class Successor : UDataTable
+    {
+        public object Table { get; set; }
+
+        public UDataTable TableExport()
+        {
+            return this;
+        }
+    }
 }
