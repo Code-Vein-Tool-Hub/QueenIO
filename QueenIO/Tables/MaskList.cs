@@ -104,8 +104,8 @@ namespace QueenIO.Tables
             AnimClass = ((ObjectPropertyData)Mask.Value[2]).Value.Index;
             CheckFlagSymbol.Read((StrPropertyData)Mask.Value[3]);
             ScenarioOffset.Read((StructPropertyData)Mask.Value[4]);
-            FaceHide = ((BoolPropertyData)Mask.Value[5]).Value;
-            HairHide = ((BoolPropertyData)Mask.Value[6]).Value;
+            try { FaceHide = ((BoolPropertyData)Mask.Value[5]).Value; } catch(ArgumentOutOfRangeException e) { Console.WriteLine("Hide Face property missing"); }
+            try { HairHide = ((BoolPropertyData)Mask.Value[6]).Value; } catch (ArgumentOutOfRangeException e) { Console.WriteLine("Hide Hair property missing"); }
         }
 
         public MaskData Clone()
