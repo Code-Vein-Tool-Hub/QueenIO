@@ -72,5 +72,20 @@ namespace QueenIO.Structs
             HidePartsH = ((BoolPropertyData)data.Value[8]).Value;
             HideRightArm = ((BoolPropertyData)data.Value[9]).Value;
         }
+
+        public bool Equals(InnerPartsVisibility visibility)
+        {
+            return Name == visibility.Name &&
+                OuterKey == visibility.OuterKey &&
+                HidePartsA == visibility.HidePartsA &&
+                HidePartsB == visibility.HidePartsB &&
+                HidePartsC == visibility.HidePartsC &&
+                HidePartsD == visibility.HidePartsD &&
+                HidePartsE == visibility.HidePartsE &&
+                HidePartsF == visibility.HidePartsF &&
+                HidePartsG == visibility.HidePartsG &&
+                HidePartsH == visibility.HidePartsH &&
+                HideRightArm == visibility.HideRightArm;
+        }
     }
 }

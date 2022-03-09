@@ -112,5 +112,14 @@ namespace QueenIO.Tables
             data.AnimClass = AnimClass;
             return data;
         }
+
+        public bool Equals(HairData hair)
+        {
+            return Name == hair.Name && 
+                TextName == hair.TextName && 
+                Thumbnail == hair.Thumbnail &&
+                Mesh == hair.Mesh &&
+                AnimClass == hair.AnimClass;
+        }
     }
 }

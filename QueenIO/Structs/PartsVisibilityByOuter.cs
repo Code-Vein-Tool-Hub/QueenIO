@@ -245,5 +245,62 @@ namespace QueenIO.Structs
 
             GauntletInvisible.Read((StructPropertyData)data.Value[51]);
         }
+
+        public bool Equals(PartsVisibilityByOuter parts)
+        {
+            return Name == parts.Name &&
+                InnerKey == parts.InnerKey &&
+                DrapeA_Male.Equals(parts.DrapeA_Male) &&
+                DrapeB_Male.Equals(parts.DrapeB_Male) &&
+                DrapeC_Male.Equals(parts.DrapeC_Male) &&
+                DrapeD_Male.Equals(parts.DrapeD_Male) &&
+                DrapeE_Male.Equals(parts.DrapeE_Male) &&
+                DrapeF_Male.Equals(parts.DrapeF_Male) &&
+                GauntletA_Male.Equals(parts.GauntletA_Male) &&
+                GauntletC_Male.Equals(parts.GauntletC_Male) &&
+                GauntletE_Male.Equals(parts.GauntletE_Male) &&
+                GauntletF_Male.Equals(parts.GauntletF_Male) &&
+                GauntletH_Male.Equals(parts.GauntletH_Male) &&
+                GauntletI_Male.Equals(parts.GauntletI_Male) &&
+                GauntletJ_Male.Equals(parts.GauntletJ_Male) &&
+                LongcoatA_Male.Equals(parts.LongcoatA_Male) &&
+                LongcoatB_Male.Equals(parts.LongcoatB_Male) &&
+                LongcoatD_Male.Equals(parts.LongcoatD_Male) &&
+                LongcoatE_Male.Equals(parts.LongcoatE_Male) &&
+                LongcoatH_Male.Equals(parts.LongcoatH_Male) &&
+                LongcoatI_Male.Equals(parts.LongcoatI_Male) &&
+                MufflerA_Male.Equals(parts.MufflerA_Male) &&
+                MufflerC_Male.Equals(parts.MufflerC_Male) &&
+                MufflerD_Male.Equals(parts.MufflerD_Male) &&
+                MufflerE_Male.Equals(parts.MufflerE_Male) &&
+                MufflerF_Male.Equals(parts.MufflerF_Male) &&
+                MufflerG_Male.Equals(parts.MufflerG_Male) &&
+                DrapeA_Female.Equals(parts.DrapeA_Female) &&
+                DrapeB_Female.Equals(parts.DrapeB_Female) &&
+                DrapeC_Female.Equals(parts.DrapeC_Female) &&
+                DrapeD_Female.Equals(parts.DrapeD_Female) &&
+                DrapeE_Female.Equals(parts.DrapeE_Female) &&
+                DrapeF_Female.Equals(parts.DrapeF_Female) &&
+                GauntletA_Female.Equals(parts.GauntletA_Female) &&
+                GauntletC_Female.Equals(parts.GauntletC_Female) &&
+                GauntletE_Female.Equals(parts.GauntletE_Female) &&
+                GauntletE_Female.Equals(parts.GauntletE_Female) &&
+                GauntletH_Female.Equals(parts.GauntletH_Female) &&
+                GauntletI_Female.Equals(parts.GauntletI_Female) &&
+                GauntletJ_Female.Equals(parts.GauntletJ_Female) &&
+                LongcoatA_Female.Equals(parts.LongcoatA_Female) &&
+                LongcoatB_Female.Equals(parts.LongcoatB_Female) &&
+                LongcoatD_Female.Equals(parts.LongcoatD_Female) &&
+                LongcoatE_Female.Equals(parts.LongcoatE_Female) &&
+                LongcoatH_Female.Equals(parts.LongcoatH_Female) &&
+                LongcoatI_Female.Equals(parts.LongcoatI_Female) &&
+                MufflerA_Female.Equals(parts.MufflerA_Female) &&
+                MufflerC_Female.Equals(parts.MufflerC_Female) &&
+                MufflerD_Female.Equals(parts.MufflerD_Female) &&
+                MufflerE_Female.Equals(parts.MufflerE_Female) &&
+                MufflerF_Female.Equals(parts.MufflerF_Female) &&
+                MufflerG_Female.Equals(parts.MufflerG_Female) &&
+                GauntletInvisible.Equals(parts.GauntletInvisible);
+        }
     }
 }

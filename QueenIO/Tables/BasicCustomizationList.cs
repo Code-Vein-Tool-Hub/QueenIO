@@ -131,5 +131,10 @@ namespace QueenIO.Tables
             data.Texture = Texture;
             return data;
         }
+
+        public bool Equals(BasicCustomizationData data)
+        {
+            return Name == data.Name && TextName == data.TextName && Thumbnail == data.Thumbnail && Texture == data.Texture;
+        }
     }
 }

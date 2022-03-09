@@ -134,5 +134,22 @@ namespace QueenIO.Tables
             data.CheckFlag = CheckFlag;
             return data;
         }
+
+        public bool Equals(FacePaintData data)
+        {
+            return Name == data.Name &&
+                Thumbnail == data.Thumbnail &&
+                IsSpecialColor == data.IsSpecialColor &&
+                ColorPaletteRowName == data.ColorPaletteRowName &&
+                ColorName == data.ColorName &&
+                Opacity == data.Opacity &&
+                Texture == data.Texture &&
+                OffsetU == data.OffsetU &&
+                OffsetV == data.OffsetV &&
+                Rotate == data.Rotate &&
+                Scale == data.Scale &&
+                Symmetry == data.Symmetry &&
+                CheckFlag.Equals(data.CheckFlag);
+        }
     }
 }

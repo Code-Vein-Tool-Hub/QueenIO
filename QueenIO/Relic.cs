@@ -17,6 +17,7 @@ namespace QueenIO
 
         public DataTableExport GetDataTable()
         {
+
             return (DataTableExport)Exports[0];
         }
 

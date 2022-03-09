@@ -45,6 +45,14 @@ namespace QueenIO
             ColorPaletteRowName = ((NamePropertyData)Color.Value[1]).Value.Value.Value;
             ColorName = ((NamePropertyData)Color.Value[2]).Value.Value.Value;
         }
+
+        public bool Equals(ColorData color)
+        {
+            return Name == color.Name &&
+                IsSpecialColor == color.IsSpecialColor &&
+                ColorPaletteRowName == color.ColorPaletteRowName &&
+                ColorName == color.ColorName;
+        }
     }
 
     public class FlagCheck
@@ -67,6 +75,12 @@ namespace QueenIO
                 Value = null;
             else
                 Value = Str.Value.Value;
+        }
+
+        public bool Equals(FlagCheck flagCheck)
+        {
+            return Name == flagCheck.Name &&
+                Value == flagCheck.Value;
         }
     }
 
@@ -92,6 +106,11 @@ namespace QueenIO
             X = ((VectorPropertyData)structProperty.Value[0]).Value.X;
             Y = ((VectorPropertyData)structProperty.Value[0]).Value.Y;
             Z = ((VectorPropertyData)structProperty.Value[0]).Value.Z;
+        }
+
+        public bool Equals(ScenarioOffsetData scenarioOffsetData)
+        {
+            return X == scenarioOffsetData.X && Y == scenarioOffsetData.Y && Z == scenarioOffsetData.Z;
         }
     }
 
@@ -154,6 +173,14 @@ namespace QueenIO
             scale3d.Y = ((VectorPropertyData)((StructPropertyData)data.Value[2]).Value[0]).Value.Y;
             scale3d.Z = ((VectorPropertyData)((StructPropertyData)data.Value[2]).Value[0]).Value.Z;
             Scale3D = scale3d;
+        }
+
+        public bool Equals(Transform transform)
+        {
+            return Name == transform.Name &&
+                Rotation.Equals(transform.Rotation) &&
+                Translation.Equals(transform.Translation) &&
+                Scale3D.Equals(transform.Scale3D);
         }
     }
 }

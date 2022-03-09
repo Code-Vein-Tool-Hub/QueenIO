@@ -138,6 +138,22 @@ namespace QueenIO.Tables
             inner.CheckFlagSymbol = CheckFlagSymbol;
             return inner;
         }
+
+        public bool Equals(InnerData inner)
+        {
+            return Name == inner.Name &&
+                Thumbnail == inner.Thumbnail &&
+                Mesh == inner.Mesh &&
+                Color_0.Equals(inner.Color_0) &&
+                Color_1.Equals(inner.Color_1) &&
+                Color_2.Equals(inner.Color_2) &&
+                Color_3.Equals(inner.Color_3) &&
+                Color_4.Equals(inner.Color_4) &&
+                Color_5.Equals(inner.Color_5) &&
+                Color_6.Equals(inner.Color_6) &&
+                HidePartsInfoDetails.Equals(inner.HidePartsInfoDetails) &&
+                CheckFlagSymbol.Equals(inner.CheckFlagSymbol);
+        }
     }
 
     public class HidePartsTableData
@@ -171,6 +187,19 @@ namespace QueenIO.Tables
                 HideParts.Add(hidePartsData);
             }
         }
+
+        public bool Equals(HidePartsTableData hide)
+        {
+            if (HideParts.Count != hide.HideParts.Count)
+                return false;
+
+            for (int i = 0; i < HideParts.Count; i++)
+            {
+                if (!HideParts[i].Equals(hide.HideParts[i]))
+                    return false;
+            }
+            return true;
+        }
     }
 
     public class HidePartsData
@@ -201,6 +230,11 @@ namespace QueenIO.Tables
         {
             Thumbnail = ((SoftObjectPropertyData)hidepart.Value[0]).Value.Value.Value;
             HidePartsName = ((NamePropertyData)hidepart.Value[1]).Value.Value.Value;
+        }
+
+        public bool Equals(HidePartsData parts)
+        {
+            return Thumbnail == parts.Thumbnail && HidePartsName == parts.HidePartsName;
         }
     }
 }

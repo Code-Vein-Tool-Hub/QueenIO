@@ -152,5 +152,26 @@ namespace QueenIO.Tables
             data.SpaEnable = SpaEnable;
             return data;
         }
+
+        public bool Equals(AccessoryData data)
+        {
+            return Name == data.Name &&
+                Thumbnail == data.Thumbnail &&
+                Mesh == data.Mesh &&
+                AnimClass == data.AnimClass &&
+                AttachRowName == data.AttachRowName &&
+                RootTransform.Equals(data.RootTransform) &&
+                OrientTransform.Equals(data.OrientTransform) &&
+                MeshTransform.Equals(data.MeshTransform) &&
+                Transformable == data.Transformable &&
+                ScaleNegate == data.ScaleNegate &&
+                MaxColor == data.MaxColor &&
+                Color_1.Equals(data.Color_1) &&
+                Color_2.Equals(data.Color_2) &&
+                Color_3.Equals(data.Color_3) &&
+                Cost == data.Cost &&
+                CheckFlag.Equals(data.CheckFlag) &&
+                SpaEnable == data.SpaEnable;
+        }
     }
 }

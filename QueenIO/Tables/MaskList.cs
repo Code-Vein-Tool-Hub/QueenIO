@@ -121,5 +121,17 @@ namespace QueenIO.Tables
             data.HairHide = HairHide;
             return data;
         }
+
+        public bool Equals(MaskData mask)
+        {
+            return Name == mask.Name &&
+                Thumbnail == mask.Thumbnail &&
+                Mesh == mask.Mesh &&
+                AnimClass == mask.AnimClass &&
+                CheckFlagSymbol.Equals(mask.CheckFlagSymbol) &&
+                ScenarioOffset.Equals(mask.ScenarioOffset) &&
+                FaceHide == mask.FaceHide &&
+                HairHide == mask.HairHide;
+        }
     }
 }
