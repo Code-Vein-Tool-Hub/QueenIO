@@ -76,7 +76,7 @@ namespace QueenIO.Tables
         public string Mesh { get; set; }
         public int AnimClass { get; set; } = -2;
         public FlagCheck CheckFlagSymbol { get; set; } = new FlagCheck();
-        public ScenarioOffsetData ScenarioOffset { get; set; } = new ScenarioOffsetData();
+        public ScenarioOffsetData ScenarioOffset { get; set; } = new ScenarioOffsetData() { Z = -150 };
         public bool FaceHide { get; set; } = false;
         public bool HairHide { get; set; } = false;
 
