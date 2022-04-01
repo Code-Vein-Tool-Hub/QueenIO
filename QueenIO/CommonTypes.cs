@@ -120,7 +120,7 @@ namespace QueenIO
         public string StructType { get; } = "Transform";
         public Quaternion Rotation { get; set; } = new Quaternion();
         public Vector3 Translation { get; set; } = new Vector3();
-        public Vector3 Scale3D { get; set; } = new Vector3();
+        public Vector3 Scale3D { get; set; } = new Vector3() { X = 1, Y = 1, Z = 1};
 
         public StructPropertyData Make(string name = "Transform")
         {
