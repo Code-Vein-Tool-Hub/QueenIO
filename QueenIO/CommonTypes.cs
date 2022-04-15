@@ -10,6 +10,32 @@ using System.Numerics;
 
 namespace QueenIO
 {
+    public class Import
+    {
+        public string ClassName { get; set; }
+        public string ClassPackage { get; set; }
+        public string ObjectName { get; set; }
+        public int OuterIndex { get; set; }
+
+        public void Read(UAssetAPI.Import import)
+        {
+            ClassName = Blood.FNameToString(import.ClassName);
+            ClassPackage = Blood.FNameToString(import.ClassPackage);
+            ObjectName = Blood.FNameToString(import.ObjectName);
+            OuterIndex = import.OuterIndex.Index;
+        }
+
+        public UAssetAPI.Import Make()
+        {
+            UAssetAPI.Import import = new UAssetAPI.Import();
+            import.ClassName = Blood.StringToFName(ClassName);
+            import.ClassPackage = Blood.StringToFName(ClassPackage);
+            import.ObjectName = Blood.StringToFName(ObjectName);
+            import.OuterIndex = new FPackageIndex(OuterIndex);
+            return import;
+        }
+    }
+
     public class ColorData
     {
         public string Name { get; set; } = "Colors";

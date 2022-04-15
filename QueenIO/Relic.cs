@@ -26,21 +26,16 @@ namespace QueenIO
             ((DataTableExport)Exports[0]).Table = table;
         }
 
-        public SortedDictionary<int, string> GetImports()
+        public SortedDictionary<int, Import> GetImports()
         {
-            SortedDictionary<int, string> imports = new SortedDictionary<int, string>();
+            SortedDictionary<int, Import> imports = new SortedDictionary<int, Import>();
 
-            imports.Add(0, "none");
-            imports.Add(1, Exports[0].ObjectName.Value.Value);
             for (int i = 0; i < Imports.Count; i++)
             {
-                string name = Imports[i].ObjectName.Value.Value;
-                if (Imports[i].ObjectName.Number > 0)
-                    imports.Add((i - (i * 2)) - 1, $"{name}_{Imports[i].ObjectName.Number - 1}");
-                else
-                    imports.Add((i - (i * 2)) - 1, name);
+                Import import = new Import();
+                import.Read(Imports[i]);
+                imports.Add((i - (i * 2)) - 1, import);
             }
-
             return imports;
         }
     }
