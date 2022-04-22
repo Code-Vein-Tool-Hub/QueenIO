@@ -89,7 +89,10 @@ namespace QueenIO.Tables
             data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail)});
             data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Mesh"), Value = new FName(Mesh) });
             data.Value.Add(new ObjectPropertyData() { Name = new FName("AnimClass"), Value = new FPackageIndex(AnimClass) });
-            data.Value.Add(new NamePropertyData() { Name = new FName("AttachRowName"), Value = new FName(AttachRowName) });
+            if (AttachRowName == null)
+                data.Value.Add(new NamePropertyData() { Name = new FName("AttachRowName"), Value = new FName("None") });
+            else
+                data.Value.Add(new NamePropertyData() { Name = new FName("AttachRowName"), Value = new FName(AttachRowName) });
             data.Value.Add(RootTransform.Make("RootTransform"));
             data.Value.Add(OrientTransform.Make("OrientTransform"));
             data.Value.Add(MeshTransform.Make("MeshTransform"));
