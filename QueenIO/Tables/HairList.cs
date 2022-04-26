@@ -96,9 +96,9 @@ namespace QueenIO.Tables
             if (((TextPropertyData)data.Value[0]).Value == null)
                 TextName = null;
             else
-                TextName = ((TextPropertyData)data.Value[0]).Value.Value;
-            Thumbnail = ((SoftObjectPropertyData)data.Value[1]).Value.Value.Value;
-            Mesh = ((SoftObjectPropertyData)data.Value[2]).Value.Value.Value;
+                TextName = ((TextPropertyData)data.Value[0]).Value.ToString();
+            Thumbnail = ((SoftObjectPropertyData)data.Value[1]).Value.ToString();
+            Mesh = ((SoftObjectPropertyData)data.Value[2]).Value.ToString();
             AnimClass = ((ObjectPropertyData)data.Value[3]).Value.Index;
         }
 

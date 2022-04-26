@@ -80,20 +80,20 @@ namespace QueenIO.Tables
         {
             StructPropertyData data = new StructPropertyData();
 
-            data.Name = new FName(Name);
-            data.StructType = new FName(StructType);
+            data.Name = FName.FromString(Name);
+            data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail) });
-            data.Value.Add(new BoolPropertyData() { Name = new FName("IsSpecialColor"), Value = IsSpecialColor });
-            data.Value.Add(new NamePropertyData() { Name = new FName("ColorPaletteRowName"), Value = new FName(ColorPaletteRowName) });
-            data.Value.Add(new NamePropertyData() { Name = new FName("ColorName"), Value = new FName(ColorName) });
-            data.Value.Add(new FloatPropertyData() {  Name = new FName("Opacity"), Value = Opacity });
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Texture"), Value = new FName(Texture) });
-            data.Value.Add(new FloatPropertyData() { Name = new FName("OffsetV"), Value = OffsetV });
-            data.Value.Add(new FloatPropertyData() { Name = new FName("OffsetU"), Value = OffsetU });
-            data.Value.Add(new FloatPropertyData() { Name = new FName("Rotate"), Value = Rotate });
-            data.Value.Add(new FloatPropertyData() { Name = new FName("Scale"), Value = Scale });
-            data.Value.Add(new BoolPropertyData() { Name = new FName("Symmetry"), Value = Symmetry });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail) });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("IsSpecialColor"), Value = IsSpecialColor });
+            data.Value.Add(new NamePropertyData() { Name = FName.FromString("ColorPaletteRowName"), Value = FName.FromString(ColorPaletteRowName) });
+            data.Value.Add(new NamePropertyData() { Name = FName.FromString("ColorName"), Value = FName.FromString(ColorName) });
+            data.Value.Add(new FloatPropertyData() {  Name = FName.FromString("Opacity"), Value = Opacity });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Texture"), Value = FName.FromString(Texture) });
+            data.Value.Add(new FloatPropertyData() { Name = FName.FromString("OffsetV"), Value = OffsetV });
+            data.Value.Add(new FloatPropertyData() { Name = FName.FromString("OffsetU"), Value = OffsetU });
+            data.Value.Add(new FloatPropertyData() { Name = FName.FromString("Rotate"), Value = Rotate });
+            data.Value.Add(new FloatPropertyData() { Name = FName.FromString("Scale"), Value = Scale });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("Symmetry"), Value = Symmetry });
             data.Value.Add(CheckFlag.Make());
 
             return data;
@@ -101,13 +101,13 @@ namespace QueenIO.Tables
 
         public void Read(StructPropertyData data)
         {
-            Name = data.Name.Value.Value;
-            Thumbnail = ((SoftObjectPropertyData)data.Value[0]).Value.Value.Value;
+            Name = data.Name.ToString();
+            Thumbnail = ((SoftObjectPropertyData)data.Value[0]).Value.ToString();
             IsSpecialColor = ((BoolPropertyData)data.Value[1]).Value;
-            ColorPaletteRowName = ((NamePropertyData)data.Value[2]).Value.Value.Value;
-            ColorName = ((NamePropertyData)data.Value[3]).Value.Value.Value;
+            ColorPaletteRowName = ((NamePropertyData)data.Value[2]).Value.ToString();
+            ColorName = ((NamePropertyData)data.Value[3]).Value.ToString();
             Opacity = ((FloatPropertyData)data.Value[4]).Value;
-            Texture = ((SoftObjectPropertyData)data.Value[5]).Value.Value.Value;
+            Texture = ((SoftObjectPropertyData)data.Value[5]).Value.ToString();
             OffsetU = ((FloatPropertyData)data.Value[6]).Value;
             OffsetV = ((FloatPropertyData)data.Value[7]).Value;
             Rotate = ((FloatPropertyData)data.Value[8]).Value;

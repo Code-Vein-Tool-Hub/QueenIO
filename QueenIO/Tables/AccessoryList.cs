@@ -83,45 +83,45 @@ namespace QueenIO.Tables
         public StructPropertyData Make()
         {
             StructPropertyData data = new StructPropertyData();
-            data.Name = new FName(Name);
-            data.StructType = new FName(StructType);
+            data.Name = FName.FromString(Name);
+            data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail)});
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Mesh"), Value = new FName(Mesh) });
-            data.Value.Add(new ObjectPropertyData() { Name = new FName("AnimClass"), Value = new FPackageIndex(AnimClass) });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail)});
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Mesh"), Value = FName.FromString(Mesh) });
+            data.Value.Add(new ObjectPropertyData() { Name = FName.FromString("AnimClass"), Value = new FPackageIndex(AnimClass) });
             if (AttachRowName == null)
-                data.Value.Add(new NamePropertyData() { Name = new FName("AttachRowName"), Value = new FName("None") });
+                data.Value.Add(new NamePropertyData() { Name = FName.FromString("AttachRowName"), Value = FName.FromString("None") });
             else
-                data.Value.Add(new NamePropertyData() { Name = new FName("AttachRowName"), Value = new FName(AttachRowName) });
+                data.Value.Add(new NamePropertyData() { Name = FName.FromString("AttachRowName"), Value = FName.FromString(AttachRowName) });
             data.Value.Add(RootTransform.Make("RootTransform"));
             data.Value.Add(OrientTransform.Make("OrientTransform"));
             data.Value.Add(MeshTransform.Make("MeshTransform"));
-            data.Value.Add(new BoolPropertyData() { Name = new FName("bTransformable"), Value = Transformable });
-            data.Value.Add(new BoolPropertyData() { Name = new FName("bScaleNegate"), Value = ScaleNegate });
-            data.Value.Add(new EnumPropertyData() { Name = new FName("MaxColor"), EnumType = new FName("EAvatarCustomizeAccessoryColorSlot"), Value = new FName(MaxColor) });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("bTransformable"), Value = Transformable });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("bScaleNegate"), Value = ScaleNegate });
+            data.Value.Add(new EnumPropertyData() { Name = FName.FromString("MaxColor"), EnumType = FName.FromString("EAvatarCustomizeAccessoryColorSlot"), Value = FName.FromString(MaxColor) });
             data.Value.Add(Color_1.Make(0));
             data.Value.Add(Color_2.Make(1));
             data.Value.Add(Color_3.Make(2));
-            data.Value.Add(new IntPropertyData() { Name = new FName("Cost"), Value = Cost });
+            data.Value.Add(new IntPropertyData() { Name = FName.FromString("Cost"), Value = Cost });
             data.Value.Add(CheckFlag.Make());
-            data.Value.Add(new BoolPropertyData() { Name = new FName("bSpaEnable"), Value = SpaEnable });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("bSpaEnable"), Value = SpaEnable });
 
             return data;
         }
 
         public void Read(StructPropertyData data)
         {
-            Name = data.Name.Value.Value;
-            Thumbnail = ((SoftObjectPropertyData)data.Value[0]).Value.Value.Value;
-            Mesh = ((SoftObjectPropertyData)data.Value[1]).Value.Value.Value;
+            Name = data.Name.ToString();
+            Thumbnail = ((SoftObjectPropertyData)data.Value[0]).Value.ToString();
+            Mesh = ((SoftObjectPropertyData)data.Value[1]).Value.ToString();
             AnimClass = ((ObjectPropertyData)data.Value[2]).Value.Index;
-            AttachRowName = ((NamePropertyData)data.Value[3]).Value.Value.Value;
+            AttachRowName = ((NamePropertyData)data.Value[3]).Value.ToString();
             RootTransform.Read((StructPropertyData)data.Value[4]);
             OrientTransform.Read((StructPropertyData)data.Value[5]);
             MeshTransform.Read((StructPropertyData)data.Value[6]);
             Transformable = ((BoolPropertyData)data.Value[7]).Value;
             ScaleNegate = ((BoolPropertyData)data.Value[8]).Value;
-            MaxColor = ((EnumPropertyData)data.Value[9]).Value.Value.Value;
+            MaxColor = ((EnumPropertyData)data.Value[9]).Value.ToString();
             Color_1.Read((StructPropertyData)data.Value[10]);
             Color_1.StructType = "AvatarCustomizeDataTableAccessoryColor";
             Color_2.Read((StructPropertyData)data.Value[11]);

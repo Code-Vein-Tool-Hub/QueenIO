@@ -88,11 +88,11 @@ namespace QueenIO.Tables
         public StructPropertyData Make()
         {
             StructPropertyData Inner = new StructPropertyData();
-            Inner.Name = new FName(Name);
-            Inner.StructType = new FName(StructType);
+            Inner.Name = FName.FromString(Name);
+            Inner.StructType = FName.FromString(StructType);
             Inner.Value = new List<PropertyData>();
-            Inner.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail)});
-            Inner.Value.Add(new SoftObjectPropertyData() { Name = new FName("Mesh"), Value = new FName(Mesh)});
+            Inner.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail)});
+            Inner.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Mesh"), Value = FName.FromString(Mesh)});
             Inner.Value.Add(Color_0.Make(0));
             Inner.Value.Add(Color_1.Make(1));
             Inner.Value.Add(Color_2.Make(2));
@@ -108,8 +108,8 @@ namespace QueenIO.Tables
         public void Read(StructPropertyData inner)
         {
             Name = inner.Name.Value.Value;
-            Thumbnail = ((SoftObjectPropertyData)inner.Value[0]).Value.Value.Value;
-            Mesh = ((SoftObjectPropertyData)inner.Value[1]).Value.Value.Value;
+            Thumbnail = ((SoftObjectPropertyData)inner.Value[0]).Value.ToString();
+            Mesh = ((SoftObjectPropertyData)inner.Value[1]).Value.ToString();
             Color_0.Read((StructPropertyData)inner.Value[2]);
             Color_1.Read((StructPropertyData)inner.Value[3]);
             Color_2.Read((StructPropertyData)inner.Value[4]);
@@ -165,8 +165,8 @@ namespace QueenIO.Tables
         public ArrayPropertyData Make()
         {
             ArrayPropertyData array = new ArrayPropertyData();
-            array.Name = new FName(Name);
-            array.ArrayType = new FName("StructProperty");
+            array.Name = FName.FromString(Name);
+            array.ArrayType = FName.FromString("StructProperty");
             array.DummyStruct = DummyStruct;
             List<PropertyData> propertyDatas = new List<PropertyData>();
             foreach (var item in HideParts)
@@ -218,18 +218,18 @@ namespace QueenIO.Tables
         public StructPropertyData Make()
         {
             StructPropertyData hidepart = new StructPropertyData();
-            hidepart.Name = new FName(Name);
-            hidepart.StructType = new FName(StructType);
+            hidepart.Name = FName.FromString(Name);
+            hidepart.StructType = FName.FromString(StructType);
             hidepart.Value = new List<PropertyData>();
-            hidepart.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail) });
-            hidepart.Value.Add(new NamePropertyData() { Name = new FName("HidePartsName"), Value = new FName(HidePartsName) });
+            hidepart.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail) });
+            hidepart.Value.Add(new NamePropertyData() { Name = FName.FromString("HidePartsName"), Value = FName.FromString(HidePartsName) });
             return hidepart;
         }
 
         public void Read(StructPropertyData hidepart)
         {
-            Thumbnail = ((SoftObjectPropertyData)hidepart.Value[0]).Value.Value.Value;
-            HidePartsName = ((NamePropertyData)hidepart.Value[1]).Value.Value.Value;
+            Thumbnail = ((SoftObjectPropertyData)hidepart.Value[0]).Value.ToString();
+            HidePartsName = ((NamePropertyData)hidepart.Value[1]).Value.ToString();
         }
 
         public bool Equals(HidePartsData parts)

@@ -42,26 +42,26 @@ namespace QueenIO.Structs
         public StructPropertyData Make()
         {
             StructPropertyData data = new StructPropertyData();
-            data.Name = new FName(Name);
-            data.StructType = new FName(StructType);
+            data.Name = FName.FromString(Name);
+            data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName(Names["OuterKey"]), Value = new FName(OuterKey) });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsA"]), Value = HidePartsA });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsB"]), Value = HidePartsB });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsC"]), Value = HidePartsC });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsD"]), Value = HidePartsD });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsE"]), Value = HidePartsE });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsF"]), Value = HidePartsF });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsG"]), Value = HidePartsG });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HidePartsH"]), Value = HidePartsH });
-            data.Value.Add(new BoolPropertyData() { Name = new FName(Names["HideRightArm"]), Value = HideRightArm });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString(Names["OuterKey"]), Value = new FName(OuterKey) });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsA"]), Value = HidePartsA });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsB"]), Value = HidePartsB });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsC"]), Value = HidePartsC });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsD"]), Value = HidePartsD });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsE"]), Value = HidePartsE });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsF"]), Value = HidePartsF });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsG"]), Value = HidePartsG });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HidePartsH"]), Value = HidePartsH });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString(Names["HideRightArm"]), Value = HideRightArm });
             return data;
         }
 
         public void Read(StructPropertyData data)
         {
-            Name = data.Name.Value.Value;
-            OuterKey = ((SoftObjectPropertyData)data.Value[0]).Value.Value.Value;
+            Name = data.Name.ToString();
+            OuterKey = ((SoftObjectPropertyData)data.Value[0]).Value.ToString();
             HidePartsA = ((BoolPropertyData)data.Value[1]).Value;
             HidePartsB = ((BoolPropertyData)data.Value[2]).Value;
             HidePartsC = ((BoolPropertyData)data.Value[3]).Value;

@@ -98,12 +98,12 @@ namespace QueenIO.Tables
         public StructPropertyData Make()
         {
             StructPropertyData data = new StructPropertyData();
-            data.Name = new FName(Name);
-            data.StructType = new FName(StructType);
+            data.Name = FName.FromString(Name);
+            data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new TextPropertyData() { Name = new FName("Name"), Value = new FString(TextName == null ? null : TextName, Encoding.ASCII) });
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail) });
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Texture"), Value = new FName(Texture) });
+            data.Value.Add(new TextPropertyData() { Name = FName.FromString("Name"), Value = new FString(TextName == null ? null : TextName, Encoding.ASCII) });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail) });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Texture"), Value = FName.FromString(Texture) });
             return data;
         }
 
@@ -113,13 +113,13 @@ namespace QueenIO.Tables
         /// <param name="data">Input Structure Property to Read</param>
         public void Read(StructPropertyData data)
         {
-            Name = data.Name.Value.Value;
+            Name = data.Name.ToString();
             if (((TextPropertyData)data.Value[0]).Value == null)
                     TextName = null;
             else
-                TextName = ((TextPropertyData)data.Value[0]).Value.Value;
-            Thumbnail = ((SoftObjectPropertyData)data.Value[1]).Value.Value.Value;
-            Texture = ((SoftObjectPropertyData)data.Value[2]).Value.Value.Value;
+                TextName = ((TextPropertyData)data.Value[0]).Value.ToString();
+            Thumbnail = ((SoftObjectPropertyData)data.Value[1]).Value.ToString();
+            Texture = ((SoftObjectPropertyData)data.Value[2]).Value.ToString();
         }
 
         public BasicCustomizationData Clone()

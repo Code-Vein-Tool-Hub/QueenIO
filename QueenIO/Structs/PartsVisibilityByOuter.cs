@@ -194,10 +194,10 @@ namespace QueenIO.Structs
         public StructPropertyData Make()
         {
             StructPropertyData data = new StructPropertyData();
-            data.Name = new FName(Name);
-            data.StructType = new FName(StructType);
+            data.Name = FName.FromString(Name);
+            data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName(NameToKey["InnerKey"]), Value = new FName(InnerKey) });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString(NameToKey["InnerKey"]), Value = FName.FromString(InnerKey) });
             foreach (var outer in InnerPartsVisibilityList)
             {
                 data.Value.Add(outer.Make());
@@ -207,8 +207,8 @@ namespace QueenIO.Structs
 
         public void Read(StructPropertyData data)
         {
-            Name = data.Name.Value.Value;
-            InnerKey = ((SoftObjectPropertyData)data.Value[0]).Value.Value.Value;
+            Name = data.Name.ToString();
+            InnerKey = ((SoftObjectPropertyData)data.Value[0]).Value.ToString();
             for (int i = 1; i < data.Value.Count; i++)
             {
                 var outer = new InnerPartsVisibility();

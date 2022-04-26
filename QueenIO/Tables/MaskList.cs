@@ -83,24 +83,24 @@ namespace QueenIO.Tables
         public StructPropertyData Make()
         {
             StructPropertyData data = new StructPropertyData();
-            data.Name = new FName(Name);
-            data.StructType = new FName(StructType);
+            data.Name = FName.FromString(Name);
+            data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Thumbnail"), Value = new FName(Thumbnail) });
-            data.Value.Add(new SoftObjectPropertyData() { Name = new FName("Mesh"), Value = new FName(Mesh) });
-            data.Value.Add(new ObjectPropertyData() { Name = new FName("AnimClass"), Value = new FPackageIndex(AnimClass) });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail) });
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Mesh"), Value = FName.FromString(Mesh) });
+            data.Value.Add(new ObjectPropertyData() { Name = FName.FromString("AnimClass"), Value = new FPackageIndex(AnimClass) });
             data.Value.Add(CheckFlagSymbol.Make());
             data.Value.Add(ScenarioOffset.Make());
-            data.Value.Add(new BoolPropertyData() { Name = new FName("bShouldFaceHidden"), Value = FaceHide });
-            data.Value.Add(new BoolPropertyData() { Name = new FName("bShouldHairHidden"), Value = HairHide });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("bShouldFaceHidden"), Value = FaceHide });
+            data.Value.Add(new BoolPropertyData() { Name = FName.FromString("bShouldHairHidden"), Value = HairHide });
             return data;
         }
 
         public void Read(StructPropertyData Mask)
         {
             Name = Mask.Name.Value.Value;
-            Thumbnail = ((SoftObjectPropertyData)Mask.Value[0]).Value.Value.Value;
-            Mesh = ((SoftObjectPropertyData)Mask.Value[1]).Value.Value.Value;
+            Thumbnail = ((SoftObjectPropertyData)Mask.Value[0]).Value.ToString();
+            Mesh = ((SoftObjectPropertyData)Mask.Value[1]).Value.ToString();
             AnimClass = ((ObjectPropertyData)Mask.Value[2]).Value.Index;
             CheckFlagSymbol.Read((StrPropertyData)Mask.Value[3]);
             ScenarioOffset.Read((StructPropertyData)Mask.Value[4]);
