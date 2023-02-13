@@ -73,9 +73,9 @@ namespace QueenIO.Tables
         public bool Transformable { get; set; }
         public bool ScaleNegate { get; set; }
         public string MaxColor { get; set; }
-        public ColorData Color_1 { get; set; } = new ColorData() { StructType = "AvatarCustomizeDataTableAccessoryColor" };
-        public ColorData Color_2 { get; set; } = new ColorData() { StructType = "AvatarCustomizeDataTableAccessoryColor" };
-        public ColorData Color_3 { get; set; } = new ColorData() { StructType = "AvatarCustomizeDataTableAccessoryColor" };
+        public ColorData Color_1 { get; set; } = new ColorData() { Name = "Color", StructType = "AvatarCustomizeDataTableAccessoryColor" };
+        public ColorData Color_2 { get; set; } = new ColorData() { Name = "Color", StructType = "AvatarCustomizeDataTableAccessoryColor" };
+        public ColorData Color_3 { get; set; } = new ColorData() { Name = "Color", StructType = "AvatarCustomizeDataTableAccessoryColor" };
         public int Cost { get; set; }
         public FlagCheck CheckFlag { get; set; } = new FlagCheck();
         public bool SpaEnable { get; set; }
@@ -86,7 +86,7 @@ namespace QueenIO.Tables
             data.Name = FName.FromString(Name);
             data.StructType = FName.FromString(StructType);
             data.Value = new List<PropertyData>();
-            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail)});
+            data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Thumbnail"), Value = FName.FromString(Thumbnail) });
             data.Value.Add(new SoftObjectPropertyData() { Name = FName.FromString("Mesh"), Value = FName.FromString(Mesh) });
             data.Value.Add(new ObjectPropertyData() { Name = FName.FromString("AnimClass"), Value = new FPackageIndex(AnimClass) });
             if (AttachRowName == null)

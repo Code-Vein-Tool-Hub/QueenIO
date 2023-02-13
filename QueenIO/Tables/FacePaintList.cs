@@ -108,8 +108,8 @@ namespace QueenIO.Tables
             ColorName = ((NamePropertyData)data.Value[3]).Value.ToString();
             Opacity = ((FloatPropertyData)data.Value[4]).Value;
             Texture = ((SoftObjectPropertyData)data.Value[5]).Value.ToString();
-            OffsetU = ((FloatPropertyData)data.Value[6]).Value;
-            OffsetV = ((FloatPropertyData)data.Value[7]).Value;
+            OffsetV = ((FloatPropertyData)data.Value[6]).Value;
+            OffsetU = ((FloatPropertyData)data.Value[7]).Value;
             Rotate = ((FloatPropertyData)data.Value[8]).Value;
             Scale = ((FloatPropertyData)data.Value[9]).Value;
             Symmetry = ((BoolPropertyData)data.Value[10]).Value;
