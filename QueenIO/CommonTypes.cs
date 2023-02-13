@@ -209,4 +209,29 @@ namespace QueenIO
                 Scale3D.Equals(transform.Scale3D);
         }
     }
+
+    public class Key
+    {
+        public string Name { get; set; }
+        public string StructType { get; } = "Key";
+        public string KeyName { get; set; }
+
+        public StructPropertyData Make(string name = "Key")
+        {
+            StructPropertyData data = new StructPropertyData();
+            data.Name = FName.FromString(name);
+            data.StructType = FName.FromString(StructType);
+            data.Value = new List<PropertyData>
+            {
+                new NamePropertyData() { Name = FName.FromString("KeyName"), Value = FName.FromString(KeyName) }
+            };
+            return data;
+        }
+
+        public void Read(StructPropertyData data)
+        {
+            Name = data.Name.ToString();
+            KeyName = ((NamePropertyData)data.Value[0]).Value.ToString();
+        }
+    }
 }
