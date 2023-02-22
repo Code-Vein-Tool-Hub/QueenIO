@@ -50,8 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssetRegistry.cs" />
     <Compile Include="Blood.cs" />
     <Compile Include="CommonTypes.cs" />
+    <Compile Include="GY_BinaryStream.cs" />
     <Compile Include="Mods\ModControlFramework.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Relic.cs" />
